@@ -6,7 +6,7 @@ android {
 
   defaultConfig {
     applicationId "com.sqisland.android.sliding_pane_layout"
-    minSdkVersion 4
+    minSdkVersion 15
     targetSdkVersion 21
     versionCode 1
     versionName "1.0.0"
