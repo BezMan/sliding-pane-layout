@@ -4,16 +4,12 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-
-import java.util.ArrayList;
 
 public class MainActivity extends ListActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+/*
     final ArrayList<Demo> demos = new ArrayList<>();
     demos.add(new Demo(this, TwoPaneActivity.class, R.string.title_two_pane));
     demos.add(new Demo(this, PartiallyShownPaneActivity.class, R.string.title_partially_shown_pane));
@@ -32,6 +28,9 @@ public class MainActivity extends ListActivity {
         startActivity(new Intent(MainActivity.this, demo.activityClass));
       }
     });
+    */
+
+    startActivity(new Intent(MainActivity.this, TwoPaneActivity.class));
   }
 
   public static class Demo {

@@ -1,17 +1,76 @@
-<android.support.v4.widget.SlidingPaneLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/sliding_pane_layout"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-  <TextView
-      android:layout_width="@dimen/side_pane_width"
-      android:layout_height="match_parent"
-      android:background="@color/blue"
-      android:text="@string/pane_1"/>
-  <TextView
-      android:layout_width="@dimen/main_pane_width"
-      android:layout_height="match_parent"
-      android:layout_weight="1"
-      android:background="@color/light_blue"
-      android:text="@string/pane_2"/>
-</android.support.v4.widget.SlidingPaneLayout>
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.sqisland.android.sliding_pane_layout.MySlidingLayout
+        android:id="@+id/sliding_pane_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="@dimen/side_pane_width"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pane_1" />
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="add" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout_pane2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_blue"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pane_2" />
+
+            <Button
+                android:id="@+id/btn_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sub" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="hello there!"
+                android:padding="20dp"/>
+            <GridView
+                android:id="@+id/gridView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:numColumns="auto_fit"
+                android:stretchMode="spacingWidthUniform"
+                android:columnWidth="60dp"
+                >
+
+            </GridView>
+        </LinearLayout>
+
+    </com.sqisland.android.sliding_pane_layout.MySlidingLayout>
+
+    <Button
+        android:id="@+id/button_toggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="toggle" />
+
+</RelativeLayout>
