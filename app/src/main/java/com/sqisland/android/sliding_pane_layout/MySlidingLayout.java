@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.widget.SlidingPaneLayout;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
 
 /**
  * Created by bezalel-s on 28/03/2016.
@@ -31,4 +32,9 @@ public class MySlidingLayout extends SlidingPaneLayout {
         return false;
     }
 
+
+    @Override
+    public int getLayoutDirection() {
+        return View.LAYOUT_DIRECTION_RTL;
+    }
 }

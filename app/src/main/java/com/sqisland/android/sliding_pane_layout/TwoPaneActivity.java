@@ -121,7 +121,7 @@ public class TwoPaneActivity extends Activity implements View.OnClickListener{
             @Override
             public void onPanelOpened(View panel) {
                 Log.wtf("TwoPaneActivity", "onPanelOpened");
-                layout_pane2.setPadding(0, 0, dimen, 0);
+                layout_pane2.setPadding(dimen, 0, 0, 0);
             }
 
             @Override
