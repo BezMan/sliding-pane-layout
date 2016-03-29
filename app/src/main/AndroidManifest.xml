@@ -15,12 +15,13 @@
     </activity>
     <activity
         android:name=".TwoPaneActivity"
+        android:configChanges="orientation|screenSize"
         android:label="@string/title_two_pane"/>
-    <activity
-        android:name=".PartiallyShownPaneActivity"
-        android:label="@string/title_partially_shown_pane"/>
-    <activity
-        android:name=".CrossFadePaneActivity"
-        android:label="@string/title_cross_fade_pane"/>
+    <!--<activity-->
+        <!--android:name=".PartiallyShownPaneActivity"-->
+        <!--android:label="@string/title_partially_shown_pane"/>-->
+    <!--<activity-->
+        <!--android:name=".CrossFadePaneActivity"-->
+        <!--android:label="@string/title_cross_fade_pane"/>-->
   </application>
 </manifest>
