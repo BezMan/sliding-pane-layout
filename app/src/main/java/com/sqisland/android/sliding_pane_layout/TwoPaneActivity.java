@@ -1,7 +1,6 @@
 package com.sqisland.android.sliding_pane_layout;
 
 import android.app.Activity;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.SlidingPaneLayout;
@@ -117,10 +116,4 @@ public class TwoPaneActivity extends Activity implements View.OnClickListener{
     }
 
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-//        Toast.makeText(this, " "+ newConfig.orientation, Toast.LENGTH_SHORT).show();
-
-    }
 }
