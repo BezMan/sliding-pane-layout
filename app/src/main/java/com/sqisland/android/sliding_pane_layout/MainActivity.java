@@ -1,7 +1,6 @@
 package com.sqisland.android.sliding_pane_layout;
 
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -30,9 +29,10 @@ public class MainActivity extends ListActivity {
     });
     */
 
-    startActivity(new Intent(MainActivity.this, TwoPaneActivity.class));
+      startActivity(new Intent(MainActivity.this, TwoPaneActivity.class));
+      finish();
   }
-
+/*
   public static class Demo {
     public final Class<?> activityClass;
     public final String title;
@@ -47,4 +47,5 @@ public class MainActivity extends ListActivity {
       return this.title;
     }
   }
+  */
 }
