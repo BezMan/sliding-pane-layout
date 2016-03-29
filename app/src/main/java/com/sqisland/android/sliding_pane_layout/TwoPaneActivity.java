@@ -30,15 +30,16 @@ public class TwoPaneActivity extends Activity implements View.OnClickListener{
     GridView gridView;
     ListView listView;
 
-    static final String[] numbers = new String[] {
+    static final String[] letters = new String[] {
             "A", "B", "C", "D", "E",
             "F", "G", "H", "I", "J",
             "K", "L", "M", "N", "O",
             "P", "Q", "R", "S", "T",
             "U", "V", "W", "X", "Y", "Z"};
 
-    ArrayList<String> listKeys = new ArrayList<>(Arrays.asList(numbers));
+    ArrayList<String> arrayListLetters = new ArrayList<>(Arrays.asList(letters));
     private boolean isEditable;
+
 
 
     @Override
@@ -48,6 +49,40 @@ public class TwoPaneActivity extends Activity implements View.OnClickListener{
 
         initVars();
 
+        setListsAndGrids();
+
+        setSlidingPane();
+
+    }
+
+
+
+    private void initVars() {
+        dimen = getApplicationContext().getResources().getDimensionPixelSize(R.dimen.side_pane_width);
+
+        slidingLayout = (MySlidingLayout) findViewById(R.id.sliding_pane_layout);
+        layout_pane2 = (LinearLayout)findViewById(R.id.layout_pane2);
+
+        btn_toggle = (Button) findViewById(R.id.btn_toggle);
+        btn_add = (Button) findViewById(R.id.btn_add);
+        btn_sub = (Button) findViewById(R.id.btn_sub);
+        btn_edit = (Button) findViewById(R.id.btn_edit);
+
+        btn_add.setOnClickListener(this);
+        btn_sub.setOnClickListener(this);
+        btn_toggle.setOnClickListener(this);
+        btn_edit.setOnClickListener(this);
+
+
+        listView = (ListView)findViewById(R.id.listView_pane1);
+        gridView = (GridView) findViewById(R.id.gridView);
+
+        adapterList = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, letters);
+        adapterGrid = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayListLetters);
+    }
+
+
+    private void setListsAndGrids() {
         gridView.setAdapter(adapterGrid);
 
         listView.setAdapter(adapterList);
@@ -58,7 +93,7 @@ public class TwoPaneActivity extends Activity implements View.OnClickListener{
                 Toast.makeText(getApplicationContext(), strItem, Toast.LENGTH_SHORT).show();
 
                 if (isEditable) {
-                    listKeys.remove(strItem);
+                    arrayListLetters.remove(strItem);
                     gridView.setAdapter(adapterGrid);
                 }
             }
@@ -71,6 +106,10 @@ public class TwoPaneActivity extends Activity implements View.OnClickListener{
             }
         });
 
+    }
+
+
+    private void setSlidingPane() {
         slidingLayout.setSliderFadeColor(Color.TRANSPARENT);
 
         slidingLayout.setPanelSlideListener(new SlidingPaneLayout.PanelSlideListener() {
@@ -94,29 +133,6 @@ public class TwoPaneActivity extends Activity implements View.OnClickListener{
         });
     }
 
-    private void initVars() {
-        dimen = getApplicationContext().getResources().getDimensionPixelSize(R.dimen.side_pane_width);
-
-        slidingLayout = (MySlidingLayout) findViewById(R.id.sliding_pane_layout);
-        layout_pane2 = (LinearLayout)findViewById(R.id.layout_pane2);
-
-        btn_toggle = (Button) findViewById(R.id.btn_toggle);
-        btn_add = (Button) findViewById(R.id.btn_add);
-        btn_sub = (Button) findViewById(R.id.btn_sub);
-        btn_edit = (Button) findViewById(R.id.btn_edit);
-
-        btn_add.setOnClickListener(this);
-        btn_sub.setOnClickListener(this);
-        btn_toggle.setOnClickListener(this);
-        btn_edit.setOnClickListener(this);
-
-
-        listView = (ListView)findViewById(R.id.listView_pane1);
-        gridView = (GridView) findViewById(R.id.gridView);
-
-        adapterList = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, numbers);
-        adapterGrid = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listKeys);
-    }
 
     @Override
     public void onClick(View v) {
